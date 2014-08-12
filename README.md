@@ -13,7 +13,7 @@ Require the bundle in your `composer.json` file:
 ````json
 {
     "require": {
-        "intaro/hstore-bundle": "~0.0.1",
+        "intaro/hstore-bundle": "~0.0.2",
     }
 }
 ```
