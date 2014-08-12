@@ -1,0 +1,17 @@
+composer.lock
+composer.phar
+vendor
+
+Resources/zephir/.temp
+Resources/zephir/ext
+
+# Other
+.DS_Store
+*~
+/nbproject/*
+/*tags*
+.idea
+.idea/*
+/.idea
+/.idea/*
+.travis.yml
