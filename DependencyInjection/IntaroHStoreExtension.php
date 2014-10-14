@@ -29,6 +29,13 @@ class IntaroHStoreExtension extends Extension implements PrependExtensionInterfa
                     'hstore' => 'Intaro\HStoreBundle\DBAL\Types\HStoreType'
                 ],
             ],
+            'orm' => [
+                'dql' => [
+                    'string_functions' => [
+                        'defined' => 'Intaro\HStoreBundle\DQL\DefinedFunction'
+                    ]
+                ]
+            ]
         ];
 
         $container->prependExtensionConfig('doctrine', $dbalConfig);
