@@ -30,7 +30,7 @@ class HStoreType extends Type
         // php extension
         if (class_exists('\HStoreCppParser')) {
             $parser = new \HStoreCppParser();
-        elseif (class_exists('\HStore\HStoreParser')) {
+        } elseif (class_exists('\HStore\HStoreParser')) {
             $parser = new \HStore\HStoreParser();
         } else {
             $parser = new \Intaro\HStoreBundle\HStore\HStoreParser();
