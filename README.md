@@ -13,7 +13,7 @@ Require the bundle in your `composer.json` file:
 ````json
 {
     "require": {
-        "intaro/hstore-bundle": "~0.0.1",
+        "intaro/hstore-bundle": "~0.0.2",
     }
 }
 ```
@@ -28,7 +28,7 @@ public function registerBundles()
     $bundles = array(
         //...
 
-        new Intaro\HStoreBundle\HStoreBundle(),
+        new Intaro\HStoreBundle\IntaroHStoreBundle(),
     );
 
     //...
@@ -52,7 +52,7 @@ cd path/to/Intaro/HStoreBundle/Resources/zephir
 zephir install
 ```
 
-Finally, enable the extension in your php.ini configuration file:
+Finally, enable the extension in your `php.ini` configuration file:
 
 ```ini
 extension = hstore.so # For Unix systems

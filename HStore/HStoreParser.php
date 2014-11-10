@@ -7,14 +7,14 @@ use Intaro\HStoreBundle\HStore\Exception\ConversionException;
 class HStoreParser
 {
     /**
-	 * Move $p to skip spaces from position $p of the string.
-	 * Return next non-space character at position $p or
-	 * false at the string end.
-	 *
-	 * @param string $str
-	 * @param int $p
-	 * @return string
-	 */
+     * Move $p to skip spaces from position $p of the string.
+     * Return next non-space character at position $p or
+     * false at the string end.
+     *
+     * @param string $str
+     * @param int $p
+     * @return string
+     */
     private function charAfterSpaces($str, &$p)
     {
         $p += strspn($str, " \t\r\n", $p);
