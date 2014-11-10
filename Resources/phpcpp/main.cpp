@@ -70,16 +70,16 @@ private:
 
 public:
 
-	Php::Value parse(Php::Parameters &params)
-	{
-		std::string str = params[0];
-		unsigned int len = str.length();
-		this->p = 0;
+    Php::Value parse(Php::Parameters &params)
+    {
+        std::string str = params[0];
+        unsigned int len = str.length();
+        this->p = 0;
 
-		std::string key, value, buffer;
+        std::string key, value, buffer;
 
-		Php::Value result;
-		while (true) {
+        Php::Value result;
+        while (true) {
             this->charAfterSpaces(str);
             if (this->p == len) {
                 break;
@@ -114,8 +114,8 @@ public:
             throw Php::Exception("Can not parse hstore string.");
         }
 
-		return result;
-	}
+        return result;
+    }
 };
 
 /**
@@ -145,7 +145,7 @@ extern "C" {
 
         hstoreNamespace.add(std::move(parser));
 
-		extension.add(std::move(hstoreNamespace));
+        extension.add(std::move(hstoreNamespace));
 
         // return the extension
         return extension;
