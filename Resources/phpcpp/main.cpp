@@ -7,7 +7,7 @@ private:
     unsigned int p;
     bool quoted;
 
-    void charAfterSpaces(std::string str)
+    void charAfterSpaces(std::string& str)
     {
         unsigned int n = str.length();
         for (; this->p < n; this->p++) {
@@ -24,7 +24,7 @@ private:
         this->p = n;
     }
 
-    std::string readString(std::string str)
+    std::string readString(std::string& str)
     {
         this->quoted = str[this->p] == '"';
 
@@ -81,7 +81,7 @@ public:
         Php::Value result;
         while (true) {
             this->charAfterSpaces(str);
-            if (this->p == len) {
+            if (this->p >= len) {
                 break;
             }
 
@@ -136,16 +136,12 @@ extern "C" {
         // for the entire duration of the process (that's why it's static)
         static Php::Extension extension("hstorecpp", "1.0");
 
-        Php::Namespace hstoreNamespace("HStoreCpp");
-
-        Php::Class<HStoreParser> parser("HStoreParser");
+        Php::Class<HStoreParser> parser("HStoreCppParser");
         parser.method("parse", &HStoreParser::parse, {
-            Php::ByVal("str", Php::Type::String, true)
+            Php::ByRef("str", Php::Type::String, true)
         });
 
-        hstoreNamespace.add(std::move(parser));
-
-        extension.add(std::move(hstoreNamespace));
+        extension.add(std::move(parser));
 
         // return the extension
         return extension;

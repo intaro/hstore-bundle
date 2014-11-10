@@ -15,7 +15,7 @@ function show_report($type, $time, $counter, $mpu, $mu)
 
 $parser1 = new Intaro\HStoreBundle\HStore\HStoreParser();
 $parser2 = new HStore\HStoreParser();
-$parser3 = new HStoreCpp\HStoreParser();
+$parser3 = new HStoreCppParser();
 
 //////////////////////////////////////////////////
 
