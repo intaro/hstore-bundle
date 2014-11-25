@@ -15,6 +15,7 @@ function show_report($type, $time, $counter, $mpu, $mu)
 
 $parser1 = new Intaro\HStoreBundle\HStore\HStoreParser();
 $parser2 = new HStore\HStoreParser();
+$parser3 = new HStoreCppParser();
 
 //////////////////////////////////////////////////
 
@@ -22,8 +23,11 @@ echo "Checking execution:\n";
 for ($i = 0, $n = sizeof($examples); $i < $n; $i++) {
     $str1 = $parser1->parse($examples[$i]);
     $str2 = $parser2->parse($examples[$i]);
+    $str3 = $parser2->parse($examples[$i]);
 
-    echo ($str1 == $str2) ? '+' : '-';
+    echo ($str1 === $str2) ? '+' : '-';
+    echo ($str1 === $str3) ? '+' : '-';
+    echo "\n";
 }
 echo "\n";
 
@@ -54,6 +58,20 @@ for ($j = 0; $j < 10; $j++) {
 $t = microtime(true) - $t;
 
 show_report('Zephir HStoreParser', $t, $counter, memory_get_peak_usage(), memory_get_usage());
+
+//////////////////////////////////////////////////
+
+$t = microtime(true);
+$counter = 0;
+for ($j = 0; $j < 10; $j++) {
+    for ($i = 0, $n = sizeof($examples); $i < $n; $i++) {
+        $parser3->parse($examples[$i]);
+        $counter++;
+    }
+}
+$t = microtime(true) - $t;
+
+show_report('Cpp HStoreParser', $t, $counter, memory_get_peak_usage(), memory_get_usage());
 
 //////////////////////////////////////////////////
 

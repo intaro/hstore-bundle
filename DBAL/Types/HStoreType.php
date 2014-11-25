@@ -12,8 +12,6 @@ use Doctrine\DBAL\Platforms\AbstractPlatform;
  */
 class HStoreType extends Type
 {
-    private static $parser;
-
     const HSTORE = 'hstore'; // modify to match your type name
     const ESCAPE = '"\\';
 
@@ -28,17 +26,18 @@ class HStoreType extends Type
             return null;
         }
 
-        if (!self::$parser) {
-            // php extension
-            if (class_exists('\HStore\HStoreParser')) {
-                self::$parser = new \HStore\HStoreParser();
-            } else {
-                self::$parser = new \Intaro\HStoreBundle\HStore\HStoreParser();
-            }
+        $parser = null;
+        // php extension
+        if (class_exists('\HStoreCppParser')) {
+            $parser = new \HStoreCppParser();
+        } elseif (class_exists('\HStore\HStoreParser')) {
+            $parser = new \HStore\HStoreParser();
+        } else {
+            $parser = new \Intaro\HStoreBundle\HStore\HStoreParser();
         }
 
         try {
-            $value = self::$parser->parse($value);
+            $value = $parser->parse($value);
         } catch (\Exception $e) {
             throw ConversionException::conversionFailed($e->getMessage(), $this->getName());
         }
