@@ -43,9 +43,27 @@ $ composer update intaro/hstore-bundle
 
 ### Installing the PHP extension
 
-The PHP extension is optional but as it brings some nice performance improvements, you might want to install it in your production environment.
+The package contains two versions of the `HStoreParser` as PHP extension. PHP extension is optional but as it brings some nice performance improvements, you might want to install it in your production environment.
 
-The extension is written in [Zephir](http://zephir-lang.com) thats why you should [install Zephir](http://zephir-lang.com/install.html) before extension compiling.
+#### PHP extension (PHP-CPP)
+
+The first extension is written in [PHP-CPP](http://www.php-cpp.com) thats why you should [install PHP-CPP](http://www.php-cpp.com/documentation/install) before extension compiling.
+
+The extension compiling:
+```bash
+cd path/to/Intaro/HStoreBundle/Resources/phpcpp
+make
+sudo make install
+```
+Finally, enable the extension in your `php.ini` configuration file:
+
+```ini
+extension = hstorecpp.so # For Unix systems
+```
+
+#### PHP extension (Zephir)
+
+The second extension is written in [Zephir](http://zephir-lang.com) thats why you should [install Zephir](http://zephir-lang.com/install.html) before extension compiling.
 
 ```bash
 cd path/to/Intaro/HStoreBundle/Resources/zephir
