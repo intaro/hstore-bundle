@@ -32,9 +32,11 @@ class IntaroHStoreExtension extends Extension implements PrependExtensionInterfa
             'orm' => [
                 'dql' => [
                     'string_functions' => [
-                        'defined' => 'Intaro\HStoreBundle\DQL\DefinedFunction',
-                        'existsAny' => 'Intaro\HStoreBundle\DQL\ExistsAnyFunction',
-                        'hstoreDifference' => 'Intaro\HStoreBundle\DQL\HstoreDifferenceFunction'
+                        'contains'          => 'Intaro\HStoreBundle\DQL\ContainsFunction'
+                        'defined'           => 'Intaro\HStoreBundle\DQL\DefinedFunction',
+                        'existsAny'         => 'Intaro\HStoreBundle\DQL\ExistsAnyFunction',
+                        'hstoreDifference'  => 'Intaro\HStoreBundle\DQL\HstoreDifferenceFunction',
+                        'fetchval'          => 'Intaro\HStoreBundle\DQL\FetchvalFunction'
                     ]
                 ]
             ]

@@ -5,17 +5,16 @@ use Doctrine\ORM\Query\AST\Functions\FunctionNode;
 use Doctrine\ORM\Query\Lexer;
 use Doctrine\ORM\Configuration;
 
-class DefinedFunction extends FunctionNode
+class FetchvalFunction extends FunctionNode
 {
     public $hstoreExpression = null;
     public $keyExpression = null;
 
     public function getSql(\Doctrine\ORM\Query\SqlWalker $sqlWalker)
     {
-        return 'defined('.
+        return 'fetchval('.
             $this->hstoreExpression->dispatch($sqlWalker) . ',' .
-            $this->keyExpression->dispatch($sqlWalker) .
-        ')';
+            $this->keyExpression->dispatch($sqlWalker) . ')';
     }
 
     public function parse(\Doctrine\ORM\Query\Parser $parser)
