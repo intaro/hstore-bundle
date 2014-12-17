@@ -28,6 +28,9 @@ class IntaroHStoreExtension extends Extension implements PrependExtensionInterfa
                 'types' => [
                     'hstore' => 'Intaro\HStoreBundle\DBAL\Types\HStoreType'
                 ],
+                'mapping_types' => [
+                    'hstore' => 'hstore'
+                ],
             ],
             'orm' => [
                 'dql' => [
