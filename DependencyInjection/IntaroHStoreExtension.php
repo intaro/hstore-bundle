@@ -26,10 +26,12 @@ class IntaroHStoreExtension extends Extension implements PrependExtensionInterfa
         $dbalConfig = [
             'dbal' => [
                 'types' => [
-                    'hstore' => 'Intaro\HStoreBundle\DBAL\Types\HStoreType'
+                    'hstore'        => 'Intaro\HStoreBundle\DBAL\Types\HStoreType',
+                    'text_array'    => 'Intaro\HStoreBundle\DBAL\Types\TextArrayType'
                 ],
                 'mapping_types' => [
-                    'hstore' => 'hstore'
+                    'hstore'        => 'hstore',
+                    'text_array'    => 'text_array'
                 ],
             ],
             'orm' => [

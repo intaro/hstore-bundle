@@ -13,8 +13,8 @@ class ExistsAnyFunction extends FunctionNode
     public function getSql(\Doctrine\ORM\Query\SqlWalker $sqlWalker)
     {
         return 'exists_any(' .
-            $this->hstoreExpression->dispatch($sqlWalker) . ', ARRAY[' .
-            $this->keyExpression->dispatch($sqlWalker) . '])';
+            $this->hstoreExpression->dispatch($sqlWalker) . ', ' .
+            $this->keyExpression->dispatch($sqlWalker) . ')';
     }
 
     public function parse(\Doctrine\ORM\Query\Parser $parser)
