@@ -26,10 +26,10 @@ class IntaroHStoreExtension extends Extension implements PrependExtensionInterfa
         $dbalConfig = [
             'dbal' => [
                 'types' => [
-                    'hstore' => 'Intaro\HStoreBundle\DBAL\Types\HStoreType'
+                    'hstore'        => 'Intaro\HStoreBundle\DBAL\Types\HStoreType'
                 ],
                 'mapping_types' => [
-                    'hstore' => 'hstore'
+                    'hstore'        => 'hstore'
                 ],
             ],
             'orm' => [
@@ -37,7 +37,6 @@ class IntaroHStoreExtension extends Extension implements PrependExtensionInterfa
                     'string_functions' => [
                         'contains'          => 'Intaro\HStoreBundle\DQL\ContainsFunction',
                         'defined'           => 'Intaro\HStoreBundle\DQL\DefinedFunction',
-                        'existsAny'         => 'Intaro\HStoreBundle\DQL\ExistsAnyFunction',
                         'hstoreDifference'  => 'Intaro\HStoreBundle\DQL\HstoreDifferenceFunction',
                         'fetchval'          => 'Intaro\HStoreBundle\DQL\FetchvalFunction'
                     ]
