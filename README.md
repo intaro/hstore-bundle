@@ -10,7 +10,7 @@ HStoreBundle requires Symfony 2.3 or higher.
 
 Require the bundle in your `composer.json` file:
 
-````json
+```json
 {
     "require": {
         "intaro/hstore-bundle": "~0.0.2",
